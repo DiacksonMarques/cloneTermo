@@ -1,0 +1,77 @@
+<p-dialog [style]="{width: '50vw'}" contentStyleClass="customDialog" styleClass="customDialog" [(visible)]="dialogStart">
+  <div class="container">
+    <p>
+      Descubra a palavra certa em 6 tentativas. Depois de cada tentativa, as peças mostram o quão
+      perto você está da solução.
+    </p>
+
+    <div class="exempla">
+      <span class="letter corret">T</span>
+      <span class="letter">U</span>
+      <span class="letter">R</span>
+      <span class="letter">M</span>
+      <span class="letter">A</span>
+    </div>
+
+    <p>
+      A letra
+      <span class="letter corret">T</span>
+      faz parte da palavra e está na posição correta.
+    </p>
+
+    <div class="exempla">
+      <span class="letter">V</span>
+      <span class="letter">I</span>
+      <span class="letter place">O</span>
+      <span class="letter">L</span>
+      <span class="letter">A</span>
+    </div>
+
+    <p>
+      A letra
+      <span class="letter place">O</span>
+      faz parte da palavra mas em outra posição.
+    </p>
+
+    <div class="exempla">
+      <span class="letter">P</span>
+      <span class="letter">U</span>
+      <span class="letter">L</span>
+      <span class="letter wrong">G</span>
+      <span class="letter">A</span>
+    </div>
+
+    <p>
+      A letra
+      <span class="letter wrong">G</span>
+      não faz parte da palavra.
+    </p>
+    <p>Os acentos são preenchidos automaticamente, e não são considerados nas dicas.</p>
+    <p>As palavras podem possuir letras repetidas.</p>
+  </div>
+</p-dialog>
+
+<div class="card">
+  <div class="card-container overflow-hidden m-2">
+      <div class="flex">
+          <div class="flex-initial flex w-2"></div>
+          <div class="flex-auto flex text-white">
+            <div class="w-full">
+              <header >
+                <button pButton class="p-button-secondary" icon="pi pi-question" (click)="dialogStart = true"></button>
+                <p class="title">
+                  <span>TERMO</span>
+                </p>
+              </header>
+
+              <main class="content">
+                <ng-container *ngFor="let letter of letters; index as indexLetter">
+                  <app-set-letters [currentWord]="indexSelect === indexLetter"></app-set-letters>
+                </ng-container>
+              </main>
+            </div>
+          </div>
+          <div class="flex-initial flex w-2"></div>
+      </div>
+  </div>
+</div>

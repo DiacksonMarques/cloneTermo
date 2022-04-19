@@ -1,0 +1,7 @@
+<main class="container">
+  <ng-container *ngFor="let letter of letters; index as indexLetter">
+    <span *ngIf="currentWord" class="letter empty"></span>
+    <span *ngIf="currentWord && letter.select" (click)="selectLetter(indexLetter)" class="letter select"></span>
+    <span *ngIf="!currentWord" class="letter"></span>
+  </ng-container>
+</main>
