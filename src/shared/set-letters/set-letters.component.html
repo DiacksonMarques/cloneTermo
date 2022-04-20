@@ -1,7 +1,15 @@
 <main class="container">
   <ng-container *ngFor="let letter of letters; index as indexLetter">
-    <span *ngIf="currentWord" class="letter empty"></span>
-    <span *ngIf="currentWord && letter.select" (click)="selectLetter(indexLetter)" class="letter select"></span>
-    <span *ngIf="!currentWord" class="letter"></span>
+    <!-- <div *ngIf="currentWord && letter.select" tabindex="0" (click)="selectLetter(indexLetter)" class="letter empty select">
+      {{letter.letter}}
+    </div>
+    <div *ngIf="currentWord && !letter.select" (click)="selectLetter(indexLetter)" class="letter empty">
+      {{letter.letter}}
+    </div> -->
+    <input *ngIf="currentWord"
+      [ngModel]="letter.letter"pKeyFilter="alpha" maxlength="1"
+      (keydown)="addLetter($event, indexLetter)"  id="{{indexLetter}}"
+      type="text" pInputText class="letter empty">
+    <div *ngIf="!currentWord" class="letter"></div>
   </ng-container>
 </main>

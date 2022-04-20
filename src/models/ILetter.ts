@@ -9,4 +9,5 @@ export interface Letter {
   place: boolean;
   wrong: boolean;
   select: boolean;
+  index?: number;
 }

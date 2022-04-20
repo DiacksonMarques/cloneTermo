@@ -55,12 +55,11 @@
 </p-dialog>
 
 <div class="card">
-  <div class="card-container overflow-hidden m-2">
+  <div class="flex flex-row flex-wrap card-container justify-content-center">
       <div class="flex">
-          <div class="flex-initial flex w-2"></div>
-          <div class="flex-auto flex text-white">
+          <div class="flex text-white">
             <div class="w-full">
-              <header >
+              <header>
                 <button pButton class="p-button-secondary" icon="pi pi-question" (click)="dialogStart = true"></button>
                 <p class="title">
                   <span>TERMO</span>
@@ -72,9 +71,12 @@
                   <app-set-letters [currentWord]="indexSelect === indexLetter"></app-set-letters>
                 </ng-container>
               </main>
+
+              <footer>
+                <app-keyboard></app-keyboard>
+              </footer>
             </div>
           </div>
-          <div class="flex-initial flex w-2"></div>
       </div>
   </div>
 </div>
