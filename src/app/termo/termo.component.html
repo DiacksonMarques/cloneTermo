@@ -1,4 +1,7 @@
-<p-dialog [style]="{width: '50vw'}" contentStyleClass="customDialog" styleClass="customDialog" [(visible)]="dialogStart">
+<p-toast position="top-center"></p-toast>
+<p-dialog [breakpoints]="{'960px': '75vw'}" [style]="{width: '70%'}"
+  [draggable]="false" [resizable]="false" contentStyleClass="customDialog"
+  styleClass="customDialog" [(visible)]="dialogStart">
   <div class="container">
     <p>
       Descubra a palavra certa em 6 tentativas. Depois de cada tentativa, as peças mostram o quão
@@ -49,34 +52,51 @@
       <span class="letter wrong">a</span>
       não faz parte da palavra.
     </p>
-    <p>Os acentos são preenchidos automaticamente, e não são considerados nas dicas.</p>
+    <p>Não ha necessidade de colocar acentos.</p>
     <p>As palavras podem possuir letras repetidas.</p>
   </div>
 </p-dialog>
 
+<p-dialog [breakpoints]="{'960px': '75vw'}" [style]="{width: '70%'}"
+  [draggable]="false" [resizable]="false" contentStyleClass="customDialog"
+  styleClass="customDialog" [(visible)]="dialogFinish">
+  <div class="container-f">
+    <h1>{{messageCode.message}}</h1>
+    <p *ngIf="messageCode.code != 0">
+      Karen & Diackson
+    </p>
+  </div>
+</p-dialog>
+
 <div class="card">
-  <div class="flex flex-row flex-wrap card-container justify-content-center">
-      <div class="flex">
-          <div class="flex text-white">
-            <div class="w-full">
-              <header>
-                <button pButton class="p-button-secondary" icon="pi pi-question" (click)="dialogStart = true"></button>
-                <p class="title">
-                  <span>TERMO</span>
-                </p>
-              </header>
+  <div class="card-container justify-content-center">
+    <div class="flex flex-row flex-wrap text-white">
+      <div class="w-full">
+        <header>
+          <button pButton class="p-button-secondary" icon="pi pi-question" (click)="dialogStart = true"></button>
+          <p class="title">
+            <span>TERMO</span>
+          </p>
+        </header>
 
-              <main class="content">
-                <ng-container *ngFor="let letter of letters; index as indexLetter">
-                  <app-set-letters [currentWord]="indexSelect === indexLetter"></app-set-letters>
-                </ng-container>
-              </main>
+        <main class="content">
+          <ng-container *ngFor="let word of words; index as indexLetter">
+            <app-set-letters
+              [currentWord]="indexSelect === indexLetter"
+              [correctWord]="correctWord"
+              [indexLineWordActual]="indexLetter"
+              [indexLineWord]="indexSelect"
+              [(newWord)]="newWord"
+              (emitLetters)="addNewWord($event)"
+              (emitMessage)="message($event)">
+            </app-set-letters>
+          </ng-container>
+        </main>
 
-              <footer>
-                <app-keyboard></app-keyboard>
-              </footer>
-            </div>
-          </div>
+        <footer>
+          <app-keyboard [lineKeyboard]="lineKeyboard"></app-keyboard>
+        </footer>
       </div>
+    </div>
   </div>
 </div>

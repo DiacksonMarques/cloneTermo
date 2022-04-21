@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'termo', component: TermoComponent },
+  { path: 'termo/:id', component: TermoComponent },
   { path: '',   redirectTo: '/termo', pathMatch: 'full' }
 ];
 

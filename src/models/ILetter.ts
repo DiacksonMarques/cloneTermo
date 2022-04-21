@@ -1,8 +1,8 @@
-export interface ILetter {
-  letters: Letter[];
+export interface IWord {
+  word: ILetter[];
 }
 
-export interface Letter {
+export interface ILetter {
   letter: string;
   empty: boolean;
   corret: boolean;
@@ -10,4 +10,20 @@ export interface Letter {
   wrong: boolean;
   select: boolean;
   index?: number;
+}
+
+export interface IKeyboar {
+  line0: ILetter[];
+  line1: ILetter[];
+  line2: ILetter[];
+}
+
+export interface IMessage {
+  code: number;
+  message: string;
+}
+
+export interface IErrorLetter {
+  check: boolean;
+  mesage?: string;
 }
