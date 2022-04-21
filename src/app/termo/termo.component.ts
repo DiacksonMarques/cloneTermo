@@ -98,23 +98,23 @@ export class TermoComponent implements OnInit {
   private setMessageCode(){
     switch (this.messageCode.code) {
       case 2022150801:{
-        this.messageCode.message = 'Diego & Raquel acaeitam ser nossos padrinhos de casamento?'
+        this.messageCode.message = 'Diego & Raquel aceitam ser nossos padrinhos de casamento?'
         break;
       }
       case 2022150802:{
-        this.messageCode.message = 'Marquinhos & Jessica acaeitam ser nossos padrinhos de casamento?'
+        this.messageCode.message = 'Marquinhos & Jessica aceitam ser nossos padrinhos de casamento?'
         break;
       }
       case 2022150803:{
-        this.messageCode.message = 'Adriana & Antonio acaeitam ser nossos padrinhos de casamento?'
+        this.messageCode.message = 'Adriana & Antonio aceitam ser nossos padrinhos de casamento?'
         break;
       }
       case 2022150804:{
-        this.messageCode.message = 'Gabi acaeita ser nossa padrinha de casamento?'
+        this.messageCode.message = 'Gabi aceita ser nossa padrinha de casamento?'
         break;
       }
       case 2022150805:{
-        this.messageCode.message = 'Dackson acaeita ser nosso padrinho de casamento?'
+        this.messageCode.message = 'Dackson aceita ser nosso padrinho de casamento?'
         break;
       }
       default:
